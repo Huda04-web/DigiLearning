@@ -1,0 +1,63 @@
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #000033;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius:10px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius:10px;
+}
+
+#navbar a.active {
+  background-color: #483D8B;
+  color: white;
+ border-radius:10px;
+}
+
+#loginn{
+margin-left:2px;
+background-color:#000066;
+}
+#mostn
+{
+margin-left:2px;
+background-color:#000066;
+}
+#abtn{
+margin-left:2px;
+background-color: #000080;
+}
+
+#homeb{
+height:35px;
+width:35px;
+}
+#submit{
+padding:10px 10px;
+margin-top:10px;
+margin-bottom:10px;
+border-radius:10px;
+color:white;
+font-size:20px;
+background-color:#000066;
+}
+
+#reset{
+padding:10px 15px;
+margin-top:10px;
+margin-bottom:10px;
+border-radius:10px;
+color:white;
+font-size:20px;
+background-color:#000066;
+}
+

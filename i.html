@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1 align="center" >
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="file:///home/lenovo/Music/huda%20html%20/style1.css">
+<style type="text/css">
+body
+{
+font-family:arial;
+font-size:50;
+font-weight:bold;
+border-width:100px;
+border-color:black;
+line-height:1;
+background-color:powderblue;
+align:center;
+}
+</style>
+
+</head>
+<body bgcolor="gray">
+<div class="navbar">
+  	<a  class="active" href="file:///home/lenovo/Music/huda%20html%20/index.html">Home</a>
+	<a id='mostn' href="file:///home/lenovo/Music/huda%20html%20/mst.html">Most taken tutorials</a>
+ 	<a id='abtn' href="file:///home/lenovo/Music/huda%20html%20/My%20Post.jpg">About us</a>
+</div>
+<form name=stud method="get" align="center" action="" onSubmit="return (validate())">
+<table align="center" cellpadding = "10">
+
+<h6 style="text-align:left">First Name:<input style="margin-left:59px" type="text" name="firstname"></input>  </h6> 
+<h6 style="text-align:left">Middle Name:  <input style="margin-left:33px" type="text" name="middlename"></input>  </h6> 
+<h6 style="text-align:left"> Last Name:  <input style="margin-left:54px" type="text" name="lastname"></input> </h6>  
+<!--</br>GENDER: -->
+  <center>
+<!--</br>BLOOD-GROUP:  <input type="text" name="bg"></input>  -->
+<h6 style="text-align:left"> Email-ID:  <input style="margin-left:74px" type="text" name="ei"></input></h6> 
+<h6 style="text-align:left"> Mobile Number:  <input style="margin-left:10px" type="text" name="mobn"></input></h6>   	
+</center>
+<center>
+<input id='submit' type="submit" name="submit" value="Submit"></input><br><br>
+<input id='reset' type="reset" name="res"></input><br>
+</center>
+<script type="text/javascript">
+
+function validate()
+{
+	
+	var fn=document.stud.firstname.value;
+	var mn=document.stud.middlename.value;
+	var ln=document.stud.lastname.value;
+	var b=document.stud.bg;
+	var mbn=document.stud.mobn;
+
+if(fn=="")
+{
+alert("Please Enter Your First Name");
+document.stud.firstname.focus();
+return false;
+}
+if(!isNaN(fn))
+{
+alert("Please Enter Only Characters");
+document.stud.firstname.select();
+return false;
+}
+
+if(mn=="")
+{
+alert("Please Enter Your Middle Name");
+document.stud.middlename.focus();
+return false;
+}
+if(!isNaN(mn))
+{
+alert("Please Enter Only Characters");
+document.stud.middlename.select();
+return false;
+}
+
+if(ln=="")
+{
+alert("Please Enter Your Middle Name");
+document.stud.lastname.focus();
+return false;
+}
+if(!isNaN(ln))
+{
+alert("Please Enter Only Characters");
+document.stud.lastname.select();
+return false;
+}
+
+/*
+var regexp=/^[a-zA-Z]+$/;
+if(!b.value.match(regexp))
+{
+alert("INVALID BLOOD-GROUP!");
+b.focus();
+return false;
+}
+*/
+
+var ed=document.stud.ei;
+var e=document.stud.ei.value;
+var atp=e.indexOf("@");
+var dotp=e.indexOf(".");
+if(atp < 1 || dotp < atp+2 || dotp+2>=e.length)
+{
+alert("PLEASE ENTER VALID EMAIL ID!");
+ed.focus();
+return false;
+}
+if(mbn.value=="" || mbn.value.length!=10)
+{
+alert("ENTER A VALID CONTACT NUMBER!");
+mbn.focus();
+return false;
+}
+return true;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
