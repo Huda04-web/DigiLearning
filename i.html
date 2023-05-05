@@ -1,0 +1,150 @@
+<html>
+<head>
+
+<title>Login Form</title>
+	<link rel="stylesheet" type="text/css" href="file:///home/lenovo/Music/huda%20html%20/style.css">
+<style>
+.navbar {
+  overflow: hidden;
+margin-top:-30px;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navbar a.active {
+  background-color: #483D8B;
+  color: white;
+}
+
+p{
+	color:white;
+}
+canvas{
+margin: 10px 1000px;
+}
+	a{
+		 color: pink;
+  background-color: transparent;
+	   }
+</style>
+<body>
+<div class="navbar">
+  	<a  class="active" href="file:///home/lenovo/Music/huda%20html%20/index.html">Home</a>
+</div>
+
+	<div class="loginbox">
+	<img src="file:///home/lenovo/Music/huda%20html%20/admin.png" class="avatar" height="110" width="100">
+		<h1 title="login">Login Here</h1>
+			<form>
+			<p>Username</p> 
+			<input type="text" name="" placeholder="Enter Username">
+			<p>Password</p> 
+			<input type="password" name="" placeholder="Enter Password">
+			<input style="border-radius:5px" type="submit" name="" value="Login">
+			<a href="#">Forgot password?</a></br>
+			<a href="#">Don't have an account</a>
+	</div>
+
+<canvas id="canvas" width="200" height="200"
+style="background-color:none">
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+</form>
+</br>
+<p style="font-color:white;padding:0px 1070px;text-align-center">Register Today</p>
+</br>
+<img style="padding:0px 1040px;margin:-20px" src="http://pa1.narvii.com/5748/e2842836789d331ae8b16b50edeec366e77f311d_00.gif" height="150" width="150" alt="center"></img>
+
+</body>
+</head>
+</html>
